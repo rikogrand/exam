@@ -1,0 +1,52 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SuperVolleyball.EditPlayerWindow"
+        Title="Редактировать игрока" CanResize="False"
+        Height="660"
+        Width="1530">
+        
+         <Grid>
+       <Grid.ColumnDefinitions>
+           <ColumnDefinition ></ColumnDefinition>
+           <ColumnDefinition ></ColumnDefinition>
+           <ColumnDefinition ></ColumnDefinition>
+           <ColumnDefinition ></ColumnDefinition>
+           <ColumnDefinition ></ColumnDefinition>
+           <ColumnDefinition ></ColumnDefinition>
+       </Grid.ColumnDefinitions>
+       <Grid.RowDefinitions>
+           <RowDefinition></RowDefinition>
+           <RowDefinition></RowDefinition>
+           <RowDefinition></RowDefinition>
+           <RowDefinition></RowDefinition>
+           <RowDefinition></RowDefinition>
+           <RowDefinition></RowDefinition>
+           <RowDefinition></RowDefinition>
+           <RowDefinition></RowDefinition>
+       </Grid.RowDefinitions>
+        <TextBlock  FontSize="25" FontWeight="ExtraBold" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">Имя</TextBlock>
+        <TextBox   FontSize="15" FontWeight="ExtraBold"   Grid.Row="0"  Grid.Column="3" Name="namePlayerTB" Height="40" HorizontalAlignment="Left" Width="200"/>
+        <TextBlock FontSize="25" FontWeight="ExtraBold" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">Позиция</TextBlock>
+        <ComboBox  FontSize="15" FontWeight="ExtraBold"  Grid.Row="1" Grid.Column="3"  Name="positionCB"  Height="40" x:CompileBindings="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200"
+                   DisplayMemberBinding="{Binding Name}">
+        </ComboBox>
+        <TextBlock  FontSize="25" FontWeight="ExtraBold" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">Вес</TextBlock>
+        <TextBox   FontSize="15" FontWeight="ExtraBold"   Grid.Row="2"  Grid.Column="3" Name="weightTB" Height="40" HorizontalAlignment="Left" Width="200"/>
+        <TextBlock  FontSize="25" FontWeight="ExtraBold" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">Рост</TextBlock>
+        <TextBox   FontSize="15" FontWeight="ExtraBold"   Grid.Row="3"  Grid.Column="3" Name="heightTB" Height="40" HorizontalAlignment="Left" Width="200"/>
+       <TextBlock  FontWeight="ExtraBold"  FontSize="25" Grid.Row="4" Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Center">Дата рождения</TextBlock>
+       <DatePicker  FontSize="25" FontWeight="ExtraBold"   Grid.Row="4" Grid.Column="3"   Name="dateOfBirthDP" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Width="300" SelectedDate="{Binding DateOfBirth }"/>
+        <TextBlock  FontSize="25" FontWeight="ExtraBold" Grid.Row="5" Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Center">Дата начала матча</TextBlock>
+        <DatePicker   FontSize="25"  FontWeight="ExtraBold"   Grid.Row="5" Grid.Column="3"   Name="dateOfStartMatchDP" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Width="300" SelectedDate="{Binding DateOfStartMatch }"/>
+        <TextBlock FontSize="25" FontWeight="ExtraBold" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">Команда</TextBlock>
+        <ComboBox  FontSize="15" FontWeight="ExtraBold"  Grid.Row="6" Grid.Column="3"  Name="teamCB"  Height="40" x:CompileBindings="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200"
+                   DisplayMemberBinding="{Binding Name}">
+        </ComboBox>
+        <StackPanel  HorizontalAlignment="Center" Grid.Row="7" Grid.Column="3" Width="300" Spacing="10" Orientation="Horizontal">
+           <Button Name="EditPlayernBTN" Click="EditPlayernBTN_OnClick" FontSize="20" HorizontalContentAlignment="Center" FontWeight="ExtraBold"   Height="40" Width="150"  Content="Изменить"/>
+       </StackPanel>
+   </Grid>
+</Window>

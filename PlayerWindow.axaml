@@ -1,0 +1,95 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:entity="clr-namespace:SuperVolleyball.Entity"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SuperVolleyball.PlayerWindow"
+        Title="Игроки">
+      <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+            <Grid Grid.Column="3" Grid.Row="1"  >
+                        <DataGrid x:Name="PlayerDataGrid"
+                                   AutoGenerateColumns="False"
+                                   IsReadOnly="True"
+                                   RowHeight="150"
+                                   GridLinesVisibility="All"
+                                   BorderThickness="7"
+                                   Height="500"
+                                   Width="1000"
+                                   VerticalAlignment="Top"
+                                   FrozenColumnCount="6"
+                                   x:CompileBindings="False">
+                            <DataGrid.Columns >
+                                <DataGridTemplateColumn  Header="Logo" Width="300">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate DataType="entity:Player">
+                                            <Image Source="{Binding bitmap}" Stretch="Fill"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>                    
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Width="*"   FontWeight="ExtraBold" Binding="{Binding Name}" >
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock   FontWeight="ExtraBold" HorizontalAlignment="Center" FontSize="15"  Foreground="Black" >Имя</TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="*"   FontWeight="ExtraBold" Binding="{Binding Position}">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock FontWeight="ExtraBold" HorizontalAlignment="Center" FontSize="15"  Foreground="Black">Позиция</TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="*"   FontWeight="ExtraBold" Binding="{Binding Weight}">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock FontWeight="ExtraBold" HorizontalAlignment="Center" FontSize="15"  Foreground="Black">Вес</TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="*"   FontWeight="ExtraBold" Binding="{Binding Height}">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock FontWeight="ExtraBold" HorizontalAlignment="Center" FontSize="15"  Foreground="Black">Рост</TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="*"    FontWeight="ExtraBold" Binding="{Binding DateOfBirth, StringFormat='dd.MM.yyyy'}">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock FontWeight="ExtraBold"  HorizontalAlignment="Center" FontSize="15"  Foreground="Black">Дата рождения</TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="*"  FontWeight="ExtraBold"  Binding="{Binding DateOfStartMatch, StringFormat='dd.MM.yyyy'}">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock FontWeight="ExtraBold" HorizontalAlignment="Center" FontSize="15"  Foreground="Black">Дата начала игры</TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="*"   FontWeight="ExtraBold" Binding="{Binding Team}">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock FontWeight="ExtraBold" HorizontalAlignment="Center" FontSize="15"  Foreground="Black">Команда</TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                </DataGrid.Columns>
+                           
+                        </DataGrid>
+            </Grid>
+                <Button Grid.Row="0" Grid.Column="0" FontWeight="UltraBold" Click="AddPlayernBTN_OnClick"  Name="addPlayernBTN"  Content="Добавить" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="50" Width="80" HorizontalAlignment="Left" FontSize="11"/>
+                <Button Grid.Row="0" Grid.Column="1" FontWeight="UltraBold" Click="EditPlayerBTN_OnClick" Name="editPlayerBTN"  Content="Изменить" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="50" Width="80" HorizontalAlignment="Left" FontSize="11"/>
+                <Button Grid.Row="0" Grid.Column="2" FontWeight="UltraBold" Click="DeletePlayerBTN_OnClick" Name="deletePlayerBTN"  Content="Удалить" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="50" Width="80" HorizontalAlignment="Left" FontSize="11"/>
+
+                <TextBlock  Name="searchTextBlock"  Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"  Text="Нажмите для поиска" Width="150" Height="40" />
+                <TextBox  TextChanged="SearchNameTB_OnTextChanged" TextWrapping="Wrap" Grid.Row="0" Grid.Column="3"  Width="150" Height="40"  Name="searchNameTB" />
+                <ComboBox Grid.Row="0" Grid.Column="4" Name="sortPositionCB"  Width="200" Height="20" SelectionChanged="SortPositionCB_OnSelectionChanged"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+                    <ComboBoxItem FontSize="8">По позиции</ComboBoxItem>
+                </ComboBox>
+                </Grid>
+</Window>
